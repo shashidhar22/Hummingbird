@@ -1,6 +1,6 @@
 Hummingbird (version 0.9.7)
 ===========================
->Hummingbird is a k-mer based rna expression quantification tool developed by Shashidhar Ravishankar, at the Vannberg Lab, >Georgia Institute of Technology. There are two modules to Hummingbird, namely the index and the express module. The index >module, takes as input the reference cDNA fasta file or probes list, and creates a hash based index, for quick k-mer look up. >Indexing needs to be done once for a given k-mer size. The express module, takes as input the index file, and a sequence file >in fastq or fastqgz format and using [KAnalyze](http://bioinformatics.oxfordjournals.org/content/30/14/2070) ,performs a quick >k-mer count and calculates gene expression in term of k-mers per kilobase per million k-mers mapped.
+>Hummingbird is a k-mer based rna expression quantification tool developed by Shashidhar Ravishankar, at the Vannberg Lab, Georgia Institute of Technology. There are two modules to Hummingbird, namely the index and the express module. The index module, takes as input the reference cDNA fasta file or probes list, and creates a hash based index, for quick k-mer look up. Indexing needs to be done once for a given k-mer size. The express module, takes as input the index file, and a sequence file in fastq or fastqgz format and using [KAnalyze](http://bioinformatics.oxfordjournals.org/content/30/14/2070) ,performs a quick k-mer count and calculates gene expression in term of k-mers per kilobase per million k-mers mapped.
 
 Dependencies:
 -------------
@@ -15,7 +15,7 @@ Example:
 ========
 Runtime Options:
 ----------------
-'''python
+```python
 usage: Hummingbird [-h] [-r REFER] [-f SEQFILE [SEQFILE ...]] [-k KLEN]
                    [-o OUTPUT] [-m {index,express}] [-d {probes,fasta}]
                    [-t {fastq,kc,fastqgz}] [-i INDEX] [-l {info,debug,error}]
@@ -58,26 +58,31 @@ optional arguments:
   -v, --version         show program's version number and exit
   -n THREADS, --num_thread THREADS
                         Number of threads
-'''
+```
 
 Indexing:
 ---------
+
 The following code excerpt shows the command to execute the indexing step.
-'''python
+```python
  ./hummingbird.py -r reference.fa -k 27 -o testindex -m index -n 8
- '''
+ ```
  
- Transcript quantification:
- --------------------------
+Transcript quantification:
+--------------------------
+ 
  The following code excerpt shows the command to execute the quatification step.
- '''python
+ ```python
   ./hummingbird.py -f test.fastq -i testindex -k 27 -o test.kx -t fastq -m express -n 8
-  '''
+  ```
   
-  Realease Notes:
-  ---------------
-  ### version 0.9.7 (9/8/2015):
+Realease Notes:
+---------------
+ 
+###version 0.9.7 (9/8/2015):
+ 
   * Accepts single and paired end fastq(/.gz) files.
   * Accepts .kc files as input.
   * Reference for indexing can be a fasta file or a tab delimited file with probe names and sequence.
   * Rescue algorithm to quantify isoforms does not perform well with isoforms of high overlap. (Fix coming soon in version 0.9.7).
+  * Using a cleaned human reference from [DNASU](https://dnasu.org/DNASU/GetCollection.do?collectionName=Human%20hORFeome%20V8.1%20Lentiviral%20collection) will ensure better transcript quantification.
