@@ -275,7 +275,7 @@ def transcript_list(database, line_count,klen,output,threads,gene):
         file = temp_list.pop(0)
         os.remove(file)
         temp_list.insert(0,merged_file)
-        i += i
+        i += 1
     basename = os.path.basename(output)
     shutil.move(glob.glob(output+'*.*kx')[0],output+'.mkx')
     logging.info('Merging complete')
