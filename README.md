@@ -76,7 +76,7 @@ Transcript quantification:
   ./hummingbird.py -f test.fastq -i testindex -k 27 -o test.kx -t fastq -m express -n 8
   ```
   
-Realease Notes:
+Release Notes:
 ---------------
  
 ###version 0.9.7 (9/8/2015):
