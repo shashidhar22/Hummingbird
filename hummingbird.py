@@ -146,7 +146,7 @@ def lazy_function(fasta_file):
     chunk = list()
     part = list()
     while fasta_file:
-        if count < 5000:
+        if count < 4000:
             try:
                 seq = next(fasta_file)
                 part.append([seq.id,str(seq.seq).upper()])
@@ -269,14 +269,15 @@ def transcript_list(database, line_count,klen,output,threads,gene):
     logging.info('Merging index files')
     while len(temp_list) > 1:
         merged_file = merge(temp_list[0],temp_list[1],database, i,output,klen)
+        print (merged_file)
         file = temp_list.pop(0)
         os.remove(file)
         file = temp_list.pop(0)
         os.remove(file)
         temp_list.insert(0,merged_file)
-        i += i
+        i += 1
     basename = os.path.basename(output)
-    shutil.move(glob.glob(output+'*.*kx')[0],output+'.mkx')
+    shutil.move(glob.glob(output+'*.mkx')[0],output+'.mkx')
     logging.info('Merging complete')
     return (transcript_length, transcript_order, transcript_index)
 
