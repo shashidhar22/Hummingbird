@@ -25,7 +25,6 @@ import statistics as st
 import logging
 import tempfile
 from operator import itemgetter
-from pyfasta import Fasta
 from Bio import SeqIO
 import multiprocessing
 from collections import Counter
