@@ -84,5 +84,5 @@ Realease Notes:
   * Accepts single and paired end fastq(/.gz) files.
   * Accepts .kc files as input.
   * Reference for indexing can be a fasta file or a tab delimited file with probe names and sequence.
-  * Rescue algorithm to quantify isoforms does not perform well with isoforms of high overlap. (Fix coming soon in version 0.9.7).
+  * Rescue algorithm to quantify isoforms does not perform well with isoforms of high overlap. (Fix coming soon in version 0.9.8).
   * Using a cleaned human reference from [DNASU](https://dnasu.org/DNASU/GetCollection.do?collectionName=Human%20hORFeome%20V8.1%20Lentiviral%20collection) will ensure better transcript quantification.
