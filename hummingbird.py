@@ -146,7 +146,7 @@ def lazy_function(fasta_file):
     chunk = list()
     part = list()
     while fasta_file:
-        if count < 4000:
+        if count < 5000:
             try:
                 seq = next(fasta_file)
                 part.append([seq.id,str(seq.seq).upper()])
